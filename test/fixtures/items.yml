@@ -7,6 +7,9 @@ one:
   amount: 1
   available: false
   color: MyString
+  link: MyString
+  discount_percentage: 1
+
 
 two:
   name: MyString
@@ -15,3 +18,5 @@ two:
   amount: 1
   available: false
   color: MyString
+  link: MyString
+  discount_percentage: 1

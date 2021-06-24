@@ -10,7 +10,12 @@
       <div class="panel-block">
         Price: <%= @item.price %>
       </div>
-
+      <div class="panel-block">
+        Discount: <%= @item.discount_percentage %>
+      </div>
+      <div class="panel-block">
+        Price after Discount (%): <%= price_after_discount(@item.price, @item.discount_percentage) %>
+      </div>
       <div class="panel-block">
         Description: <%= @item.description %>
       </div>
@@ -18,11 +23,20 @@
         Amount: <%= @item.amount %>
       </div>
       <div class="panel-block">
-        Available: <%= @item.available %>
+        Available: <%= @item.available ? 'Yes' : 'No' %>
       </div>
       <div class="panel-block">
         Color: <%= @item.color %>
       </div>
+      <%- if @item.link %>
+        <div class="panel-block">
+        <img src=<%=@item.link%>/>
+        </div>
+      <%- else %>
+        <div class="panel-block">
+        Link: No Link
+        </div>
+      <%- end %>
   </nav>
   <div class="columns is-mobile">
       <div class="column">

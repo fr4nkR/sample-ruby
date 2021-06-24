@@ -20,6 +20,8 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Description", with: @item.description
     fill_in "Name", with: @item.name
     fill_in "Price", with: @item.price
+    fill_in "Discount Percentage", with: @item.discount_percentage
+    fill_in "Link", with: @item.link
     click_on "Create Item"
 
     assert_text "Item was successfully created"
@@ -36,6 +38,8 @@ class ItemsTest < ApplicationSystemTestCase
     fill_in "Description", with: @item.description
     fill_in "Name", with: @item.name
     fill_in "Price", with: @item.price
+    fill_in "Discount Percentage", with: @item.discount_percentage
+    fill_in "Link", with: @item.link
     click_on "Update Item"
 
     assert_text "Item was successfully updated"

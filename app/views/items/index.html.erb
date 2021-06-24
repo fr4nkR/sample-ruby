@@ -11,18 +11,28 @@
         </header>
         <div class="card-content">
           <div class="content">
-            <p><span class="has-text-weight-bold"><%= item.price %></span> price in USD ($)</p>
-            <p><span class="has-text-weight-bold"><%= item.description %></span> item description</p>
-            <p><span class="has-text-weight-bold"><%= item.amount %></span> amount of items</p>
-            <p><span class="has-text-weight-bold"><%= item.available %></span> available?</p>
-            <p><span class="has-text-weight-bold"><%= item.color %></span> item color</p>
+            <p><span class="has-text-weight-bold"><%= item.price %></span> | Price in USD ($, each)</p>
+            <p><span class="has-text-weight-bold"><%= item.discount_percentage.nil? ? 0 : item.discount_percentage %></span> | Item Discount (%)</p>
+            <%- unless item.discount_percentage.to_i == 0 %>
+              <p><span class="has-text-weight-bold"> <%= price_after_discount(item.price, item.discount_percentage) %></span> | Price after discount </p>
+            <%- end %>
+            <p><span class="has-text-weight-bold"><%= item.description %></span> | Item Description</p>
+            <p><span class="has-text-weight-bold"><%= item.amount %></span> | Amount of Items</p>
+            <p><span class="has-text-weight-bold"><%= item.available ? 'Yes' : 'No' %></span> | Available?</p>
+            <p><span class="has-text-weight-bold"><%= item.color %></span> | Item Color</p>
+            <%- if item.link %>
+              <p><span class="has-text-weight-bold"><img src=<%=item.link%>/></span></p>
+            <%- else %>
+              <p><span class="has-text-weight-bold">No Image</span></p>
+            <%- end %>
+
             <class="italic">Logged <%= time_ago_in_words(item.created_at) %> </p>
           </div>
         </div>
         <div class="card-footer">
           <%= link_to 'Show', item, class: "card-footer-item" %>
           <%= link_to 'Edit', edit_item_path(item), class: "card-footer-item" %>
-          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-footer-item" %>
+          <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-footer-item" %>
         </div>
       </div>
       </div>

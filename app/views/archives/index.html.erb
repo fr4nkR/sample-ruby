@@ -17,10 +17,13 @@
                         <div class="card-content">
                             <strong><%= item.name %></strong><br/>
                             Price: <%= item.price %>
+                            | Discount (%): <%= item.discount_percentage %>
+                            | Price after Discount (%): <%= price_after_discount(item.price, item.discount_percentage) %>
                             | Description: <%= item.description %>
                             | Amount: <%= item.amount %>
                             | Available: <%= item.available ? 'Yes' : 'No' %>
                             | Color: <%= item.color %>
+                            | Image Available: <%= item.link ? 'Yes' : 'No' %>
                         </div>
                     </div>
                 <% end %>
