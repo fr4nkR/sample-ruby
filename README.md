@@ -1,24 +1,11 @@
 # README
+Sample program to demonstrate ruby and ROR.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After cloning this repository,
 
-Things you may want to cover:
+run
+```bash
+rails server
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This will create a local server to try the application and it will run on port 3000.
