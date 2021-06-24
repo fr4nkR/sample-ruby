@@ -1,0 +1,50 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, class: "label" %>
+    <%= form.text_field :price, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <%= form.text_field :description, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, class: "label" %>
+    <%= form.number_field :amount, class: "input" %>
+  </div>
+
+  <div class="b-checkbox is-success is-circular">
+    <%= form.label :available, class: "label" %>
+    <%= form.check_box :available, class: "checkbox" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color, class: "label" %>
+    <%= form.text_field :color, class: "input" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button is-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="columns is-centered mt-6">
+    <div class="column is-half">
+        <% @items.each do |day, item| %>
+            <h3 class="is-size-4 has-text-weight-bold mb-4 has-text-centered">Items for <%= day %> </h3>
+            <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Total Items Posted</p>
+                        <p class="title"><%= item.pluck(:amount).sum %></p>
+                    </div>
+                </div>
+            </nav>
+
+            <% item.each do |item| %>
+                <%= link_to item_path(item) do %>
+                    <div class="card">
+                        <div class="card-content">
+                            <strong><%= item.name %></strong><br/>
+                            Price: <%= item.price %>
+                            | Description: <%= item.description %>
+                            | Amount: <%= item.amount %>
+                            | Available: <%= item.available ? 'Yes' : 'No' %>
+                            | Color: <%= item.color %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>

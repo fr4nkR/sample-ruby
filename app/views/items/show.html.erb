@@ -1,0 +1,37 @@
+<% content_for :title do %>
+  <%= @item.name %> &ndash; <%= DateTime.now.to_s(:nice_date) %>
+<% end %>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @item.name %>
+      </p>
+      <div class="panel-block">
+        Price: <%= @item.price %>
+      </div>
+
+      <div class="panel-block">
+        Description: <%= @item.description %>
+      </div>
+      <div class="panel-block">
+        Amount: <%= @item.amount %>
+      </div>
+      <div class="panel-block">
+        Available: <%= @item.available %>
+      </div>
+      <div class="panel-block">
+        Color: <%= @item.color %>
+      </div>
+  </nav>
+  <div class="columns is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_item_path(@item), class: "button is-gray" %>
+        <%= link_to 'Delete', edit_item_path(@item), method: :delete, data: { confirm: "Are you sure?" }, class: "button is-gray" %>
+
+      </div>
+      <div class="column"> 
+      </div>
+    </div>
+  </div>
+</div>
